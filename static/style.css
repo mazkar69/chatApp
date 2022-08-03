@@ -1,0 +1,80 @@
+p{
+    max-width: 50%;
+
+    font-size: 1.2rem;
+
+}
+input{
+    font-size: 1.2rem !important;
+}
+.chatBox{
+    overflow-y: scroll;
+}
+.message{
+    position: relative;
+    padding: 2rem 10px 10px 10px;
+    border: 1px solid green;
+    margin: .5rem .2rem;
+    width: 50%;
+    font-size: 1.05rem;
+    background-color: rgb(106, 106, 202) !important;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    overflow-wrap: break-word;
+    
+
+}
+
+.left {
+    float: left;
+    clear: both;
+    border-radius: 10px 10px 10px 0px;
+}
+
+.right {
+    float: right;
+    clear: both;
+    border-radius: 10px 10px 0px 10px;
+}
+
+
+.name{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+
+    
+}
+.time{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+
+}
+
+/* Breakpoints */
+@media (max-width:850px){
+    .message{
+        width: 70%;
+    }
+}
+
+@media (max-width:600px){
+    .message{
+        width: 80%;
+        font-size: 1rem;
+        
+    }
+    input{
+        font-size: 1.1rem !important;
+    }
+}
+@media (max-width:450px){
+    .message{
+        width: 80%;
+        font-size: .9rem;
+    }
+    input{
+        font-size: 1rem !important;
+    }
+}
