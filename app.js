@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 const path = require("path");
 const { SocketAddress } = require('net');
-const port = process.env.PORT | 5000;
+const port = process.env.PORT || 5000;
 
 //Setting static file 
 app.use("/static",express.static("static"));
