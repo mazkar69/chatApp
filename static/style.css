@@ -51,6 +51,14 @@ input{
     right: 10px;
 
 }
+.users-container{
+    overflow-y: scroll;
+}
+
+.user-icon{
+    font-size: 2rem;
+    color: black;
+}
 
 /* Breakpoints */
 @media (max-width:850px){

@@ -5,7 +5,6 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const path = require("path");
-const { SocketAddress } = require('net');
 const port = process.env.PORT || 5000;
 
 //Setting static file 
@@ -26,25 +25,19 @@ const users={};
 io.on('connection', (socket) => {
   // console.log("a new connection ")
   socket.on('new_user_connect',(userName)=>{
-    users[socket.id];userName;
-    // console.log("a new user joined the chat")
-
-
+    users[socket.id] = userName;
+    io.emit('update_users', JSON.stringify(users));
   })
 
   socket.on('disconnect',()=>{
-    // console.log("user disconnected");
+    delete users[socket.id];
+    io.emit('update_users',JSON.stringify(users));
   })
   
-  socket.on('chat_message',(msg,userName)=>{
-    // console.log(msg);
-    // console.log(userName);
+  socket.on('chat_message',(msg,userName)=>{      //recive the msg and broadcast to everyone.
     socket.broadcast.emit("recived_msg",msg,userName);
   })
 
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-  });
 });
 
 server.listen(port, () => {
